@@ -1,0 +1,139 @@
+CCS PCM C Compiler, Version 4.104, 5967               28-jun.-20 17:36
+
+               Filename: C:\Users\EHef_\Documents\OCTAVO-SEMESTRE-ESCOM\Instru\proyectosPic\Configuracion_PWM_motor\Configuración_PWM_motor.lst
+
+               ROM used: 100 words (1%)
+                         Largest free fragment is 2048
+               RAM used: 10 (3%) at main() level
+                         10 (3%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f877a.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+.................... #list 
+....................  
+.................... #device adc=10  
+.................... #fuses xt, nowdt,noprotect,put,nolvp,brownout  
+.................... #use delay(clock=4MHz)  
+....................  
+.................... int16 duty=0; 
+.................... int Timer2, Poscaler; 
+....................  
+.................... void main(){ 
+*
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  CLRF   21
+0009:  CLRF   20
+000A:  BSF    03.5
+000B:  BSF    1F.0
+000C:  BSF    1F.1
+000D:  BSF    1F.2
+000E:  BCF    1F.3
+000F:  MOVLW  07
+0010:  MOVWF  1C
+....................    Timer2=249;  
+*
+0014:  MOVLW  F9
+0015:  MOVWF  22
+....................    Poscaler=1; 
+0016:  MOVLW  01
+0017:  MOVWF  23
+....................    setup_timer_2(t2_div_by_4,Timer2,Poscaler); 
+0018:  SUBWF  23,W
+0019:  MOVWF  78
+001A:  RLF    78,W
+001B:  MOVWF  77
+001C:  RLF    77,F
+001D:  RLF    77,F
+001E:  MOVLW  F8
+001F:  ANDWF  77,F
+0020:  MOVF   77,W
+0021:  IORLW  05
+0022:  MOVWF  12
+0023:  MOVF   22,W
+0024:  BSF    03.5
+0025:  MOVWF  12
+....................    setup_ccp1(ccp_pwm);  
+0026:  BCF    03.5
+0027:  BCF    24.2
+0028:  MOVF   24,W
+0029:  BSF    03.5
+002A:  MOVWF  07
+002B:  BCF    03.5
+002C:  BCF    07.2
+002D:  MOVLW  0C
+002E:  MOVWF  17
+....................    setup_adc_ports(all_analog); 
+002F:  BSF    03.5
+0030:  BCF    1F.0
+0031:  BCF    1F.1
+0032:  BCF    1F.2
+0033:  BCF    1F.3
+....................    setup_adc(adc_clock_internal); 
+0034:  BCF    1F.6
+0035:  BCF    03.5
+0036:  BSF    1F.6
+0037:  BSF    1F.7
+0038:  BSF    03.5
+0039:  BSF    1F.7
+003A:  BCF    03.5
+003B:  BSF    1F.0
+....................    while (1){ 
+....................       set_adc_channel(0); 
+003C:  MOVLW  00
+003D:  MOVWF  78
+003E:  MOVF   1F,W
+003F:  ANDLW  C7
+0040:  IORWF  78,W
+0041:  MOVWF  1F
+....................       delay_us(100); 
+0042:  MOVLW  21
+0043:  MOVWF  77
+0044:  DECFSZ 77,F
+0045:  GOTO   044
+....................       duty=read_adc();  
+0046:  BSF    1F.2
+0047:  BTFSC  1F.2
+0048:  GOTO   047
+0049:  BSF    03.5
+004A:  MOVF   1E,W
+004B:  BCF    03.5
+004C:  MOVWF  20
+004D:  MOVF   1E,W
+004E:  MOVWF  21
+....................       set_pwm1_duty(duty);  
+004F:  MOVF   21,W
+0050:  MOVWF  79
+0051:  MOVF   20,W
+0052:  MOVWF  78
+0053:  RRF    79,F
+0054:  RRF    78,F
+0055:  RRF    79,F
+0056:  RRF    78,F
+0057:  RRF    79,F
+0058:  MOVF   78,W
+0059:  MOVWF  15
+005A:  RRF    79,F
+005B:  RRF    79,W
+005C:  ANDLW  30
+005D:  MOVWF  77
+005E:  MOVF   17,W
+005F:  ANDLW  CF
+0060:  IORWF  77,W
+0061:  MOVWF  17
+....................    } 
+0062:  GOTO   03C
+.................... } 
+0063:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT NODEBUG NOPROTECT BROWNOUT NOLVP NOCPD NOWRT

@@ -1,0 +1,128 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+006     PORTB
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 strtok.save
+022-025 temp1
+026-029 temp2
+02A-02D temp3
+02E-031 tempProm
+032     MAIN.@SCRATCH1
+033     @delay_ms1.P1
+033     MAIN.@SCRATCH2
+034-035 @MUL1616.P1
+034-035 @ITOF.P2
+034     MAIN.@SCRATCH3
+035     MAIN.@SCRATCH4
+036-037 @MUL1616.P1
+036-039 @ADDFF.P2
+036-039 @DIVFF.P3
+036-039 @PRINTF_L32D_9600_62_63FPFPF.P4
+038     @MUL1616.@SCRATCH1
+03A-03D @ADDFF.P1
+03A     @PRINTF_L32D_9600_62_63FPFPF.P2
+03A-03D @DIVFF.P3
+03B     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH1
+03C     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH2
+03D     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH3
+03E     @DIVFF.@SCRATCH1
+03E     @ADDFF.@SCRATCH1
+03E     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH4
+03F     @DIVFF.@SCRATCH2
+03F     @ADDFF.@SCRATCH2
+03F     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH5
+040     @DIVFF.@SCRATCH3
+040     @ADDFF.@SCRATCH3
+040     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH6
+041     @DIVFF.@SCRATCH4
+041     @ADDFF.@SCRATCH4
+041     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH7
+042     @DIVFF.@SCRATCH5
+042     @ADDFF.@SCRATCH5
+042     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH8
+043-046 @FTOSD.P1
+043-046 @MULFF.P2
+043-046 @DIV3232.P3
+043     @DIVFF.@SCRATCH6
+043     @ADDFF.@SCRATCH6
+044     @ADDFF.@SCRATCH7
+045     @ADDFF.@SCRATCH8
+047-04A @DIV3232.P1
+047-04A @MULFF.P2
+047     @FTOSD.@SCRATCH1
+04B     @MULFF.@SCRATCH1
+04B     @DIV3232.@SCRATCH1
+04C     @MULFF.@SCRATCH2
+04C     @DIV3232.@SCRATCH2
+04D     @MULFF.@SCRATCH3
+04D     @DIV3232.@SCRATCH3
+04E     @MULFF.@SCRATCH4
+04E     @DIV3232.@SCRATCH4
+04F     @MULFF.@SCRATCH5
+04F     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0004  @delay_ms1
+03F8  MAIN
+0019  @MUL1616
+002E  @ITOF
+004B  @DIVFF
+0115  @MULFF
+018A  @ADDFF
+0334  @FTOSD
+02CB  @DIV3232
+030D  @PRINTF_L32D_9600_62_63FPFPF
+03F8  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\EHef_\Documents\OCTAVO-SEMESTRE-ESCOM\Instru\proyectosPic\Proyecto2\
+
+Project Files:
+    main.c
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\devices\16f877a.h
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\stdio.h
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+
+Units:
+    C:\Users\EHef_\Documents\OCTAVO-SEMESTRE-ESCOM\Instru\proyectosPic\Proyecto2\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

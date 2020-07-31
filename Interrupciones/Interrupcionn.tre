@@ -1,0 +1,12 @@
+ÀÄInterrupcionn
+   ÃÄMAIN  0/33  Ram=0
+   ³  ÀÄ??0??
+   ÀÄrda_isr  0/145  Ram=0
+      ÃÄ@goto10402  0/13  Ram=0
+      ÀÄpulsaciones  (Inline)  Ram=2
+         ÃÄ@ITOF  (Inline)  Ram=2
+         ÀÄ@PRINTF_L32D_9600_62_63FPFPF  0/352  Ram=13
+            ÃÄ@MULFF  (Inline)  Ram=13
+            ÃÄ@FTOSD  (Inline)  Ram=5
+            ÃÄ@DIV3232  0/66  Ram=13
+            ÀÄ@DIV3232  0/66  Ram=13

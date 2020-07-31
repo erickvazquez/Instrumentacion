@@ -1,0 +1,25 @@
+#include <16f877a.h> // se pone el pic con el que se va a trabajar con extencion .h
+#device adc=10 //se declara adc a 10 bits
+#fuses xt, nowdt,noprotect,put,nolvp,brownout //Se agregan los fusibles
+#use delay(clock=4MHz) //velocidad del cristal o osc
+
+int16 duty=0;
+int Timer2, Poscaler;
+
+void main(){
+   //Se genera una señal cuadrada de 5kHz
+   Timer2=249; //Se carga Timer2 con el valor del PR2
+   //Pre-escalador=1; Solo puede tomar valores de 1,4,16
+   Poscaler=1; //cuando no se utiliza interrupciones siempre sera 1
+   //indicaciones para timer2
+   setup_timer_2(t2_div_by_4,Timer2,Poscaler); //preescaler de 16
+   setup_ccp1(ccp_pwm); //Se configura el módulo CCP1 en modo PWM
+   setup_adc_ports(all_analog);
+   setup_adc(adc_clock_internal);
+   while (1){
+      set_adc_channel(0);
+      delay_us(100);
+      duty=read_adc(); //nivel de voltaje de adc
+      set_pwm1_duty(duty); //10bits=1023 y 8bits=255
+   }
+}
